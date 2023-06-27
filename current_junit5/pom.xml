@@ -10,6 +10,8 @@
     <maven.compiler.target>11</maven.compiler.target>
     <maven.compiler.release>11</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.jupiter.version>5.9.3</junit.jupiter.version>
+    <junit.platform.version>1.9.3</junit.platform.version>
 </properties>
 
 <dependencies>
@@ -17,7 +19,16 @@
 	<dependency>
 	    <groupId>org.junit.jupiter</groupId>
 	    <artifactId>junit-jupiter-api</artifactId>
-	    <version>5.9.3</version>
+	    <version>${junit.jupiter.version}</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	
+	<!-- junit-platform-suite with indirect junit-platform-suite-api and junit-platform-suite-engine -->
+	<dependency>
+	    <groupId>org.junit.platform</groupId>
+	    <artifactId>junit-platform-suite</artifactId>
+	    <version>${junit.platform.version}</version>
 	    <scope>test</scope>
 	</dependency>
 	
