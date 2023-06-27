@@ -1,0 +1,6 @@
+2023-06-27 09:36:14.309 TRACE [main] [tp.calculs.TestSerie.setUpBeforeEach(TestSerie.java:22)] - setUpBeforeEach() with JUnit5 @BeforeEach called on tp.calculs.TestSerie@4c4748bf
+2023-06-27 09:36:14.321 TRACE [main] [tp.calculs.TestSerie.testEcartType(TestSerie.java:45)] - testEcartType ..., ecartType = 0.816496580927726
+2023-06-27 09:36:14.339 TRACE [main] [tp.calculs.TestSerie.tearDownAfterEach(TestSerie.java:29)] - tearDownAfterEach()  with JUnit5 @AfterEach called on tp.calculs.TestSerie@4c4748bf
+2023-06-27 09:36:14.348 TRACE [main] [tp.calculs.TestSerie.setUpBeforeEach(TestSerie.java:22)] - setUpBeforeEach() with JUnit5 @BeforeEach called on tp.calculs.TestSerie@2974f221
+2023-06-27 09:36:14.349 TRACE [main] [tp.calculs.TestSerie.testComputeStats(TestSerie.java:35)] - testComputeStats() , stat=Stat [size=3, sum=9.0, average=3.0, variance=0.6666666666666666]
+2023-06-27 09:36:14.351 TRACE [main] [tp.calculs.TestSerie.tearDownAfterEach(TestSerie.java:29)] - tearDownAfterEach()  with JUnit5 @AfterEach called on tp.calculs.TestSerie@2974f221

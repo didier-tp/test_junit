@@ -1,0 +1,7 @@
+<svg xmlns='http://www.w3.org/2000/svg' height='600' width='800'>
+<circle cx='377' cy='275' r='3' stroke='red' stroke-width='1' fill='red' />
+<circle cx='400' cy='299' r='3' stroke='red' stroke-width='1' fill='red' />
+<circle cx='425' cy='260' r='3' stroke='red' stroke-width='1' fill='red' />
+<circle cx='525' cy='220' r='3' stroke='red' stroke-width='1' fill='red' />
+<line x1='0' y1='460' x2='800' y2='96' stroke='blue' stroke-width='2' />
+</svg>
