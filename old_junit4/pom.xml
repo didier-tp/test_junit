@@ -20,6 +20,14 @@
 	    <scope>test</scope>
 	</dependency>
 	
+	<!-- hamcrest is a anagram for "matcher" , it's a old java assertion library -->
+	<dependency>
+    	<groupId>org.hamcrest</groupId>
+    	<artifactId>hamcrest</artifactId>
+    	<version>2.2</version>
+    	<scope>test</scope>
+	</dependency>
+	
 	<dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
