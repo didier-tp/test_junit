@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class WrongTests {
 	
 	@Test
-	//@Disabled //test désactivé/ignoré 
+	@Disabled //test désactivé/ignoré 
 	public void testWithError() {
 		int a=3;
 		int b=0;
@@ -16,7 +16,7 @@ public class WrongTests {
 	}
 	
 	@Test
-	//@Disabled  //test désactivé/ignoré
+	@Disabled  //test désactivé/ignoré
 	public void testWithBadAssertion() {
 		assertTrue(2+2==5); //2+2==4 !!!! not 5 !!!
 	}

@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>tp</groupId>
-  <artifactId>current_junit5</artifactId>
+  <artifactId>with_mockito</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
   
@@ -21,6 +21,22 @@
 	    <artifactId>junit-jupiter</artifactId>
 	    <version>${junit.jupiter.version}</version>
 	    <scope>test</scope>
+	</dependency>
+	
+	
+	<dependency>
+	    <groupId>org.mockito</groupId>
+	    <artifactId>mockito-core</artifactId>
+	    <version>5.4.0</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<!-- pour @ExtendWith(MockitoExtension.class) -->
+	<dependency>
+    	<groupId>org.mockito</groupId>
+    	<artifactId>mockito-junit-jupiter</artifactId>
+    	<version>5.4.0</version>
+    	<scope>test</scope>
 	</dependency>
 	
 	
@@ -81,5 +97,5 @@
     	</plugin>
 	</plugins>
 </build>
-
+  
 </project>

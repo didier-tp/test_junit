@@ -1,0 +1,20 @@
+package tp.calculs;
+
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.runner.RunWith;
+
+//@RunWith(JUnitPlatform.class) will be deprecated , use @Suite instead
+//but @Suite not already supported by some old IDE (ex: ok with eclipse 2023-03)
+
+//NB: JUnitPlatform nécessite org.junit.platform:junit-platform-runner:1.9.3 dans pom.xml
+//    @RunWith() nécessite org.junit.vintage:junit-vintage-engine:5.9.3 dans pom.xml
+
+@RunWith(JUnitPlatform.class)
+@SelectClasses({
+	TestCalculsSimples.class,
+	TestEmptySerie.class,
+	TestSerie.class
+})
+public class CalculsSuiteV1 {
+}

@@ -13,8 +13,10 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-//org.junit.jupiter.api.Assertions does not contains .assertThat()
 import org.junit.jupiter.api.Assertions;
+
+//org.junit.jupiter.api.Assertions does not contains .assertThat()
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
