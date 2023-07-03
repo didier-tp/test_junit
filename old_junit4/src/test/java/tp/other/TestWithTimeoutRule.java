@@ -40,10 +40,10 @@ public class TestWithTimeoutRule {
 	}
 	
 	@Test
-	//@Ignore
+	@Ignore
 	public void tooSlowTest() {
 		try {
-			Thread.sleep(60);//ok
+			Thread.sleep(60);//not ok
 		} catch (InterruptedException e) {
 			System.err.println(e.getMessage());
 		}

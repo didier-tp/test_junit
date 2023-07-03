@@ -87,7 +87,7 @@ public class TestParameterizedWithSources {
 		
 	  }
 	  
-	  /* content of src/test/resources :
+	  /* content of src/test/resources/carres.csv :
 		n;carre;comment
 		1;1;un 
 		2;4;quatre 

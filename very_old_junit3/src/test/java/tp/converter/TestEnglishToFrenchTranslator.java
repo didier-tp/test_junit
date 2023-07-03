@@ -7,8 +7,8 @@ import junit.framework.TestCase;
 
 public class TestEnglishToFrenchTranslator extends TestCase {
 	
-	Translator translator;
-	List<String> textList;
+	private Translator translator;
+	private List<String> textList;
 	
 	public void setUp(){
 		translator = new EnglishToFrenchTranslator();

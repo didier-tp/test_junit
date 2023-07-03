@@ -25,11 +25,15 @@ public class TestParameterizedMyChecker {
 		this.inputNumber = inputNumber;
 		this.shouldBeEven = shouldBeEven;
 		this.shouldBePrime = shouldBePrime;
+		
+		//éventuelle variante au constructeur récupérateur de paramètres:
+		//des annotations @Parameter(0), @Parameter(1) , @Parameter(2) placées sur les attributs
+		//inputNumber , shouldBeEven et shouldBePrime
 	}
 	
 	//parameters set :
 	 @Parameterized.Parameters
-	   public static Collection<?> primeNumbers() {
+	   public static Collection<?> evenOrPrimeNumbers() {
 		 //return collection of { inputNumber , shouldBeEven , shouldBePrime}
 	      return Arrays.asList(new Object[][] {
 	    	 { 1, false, true },

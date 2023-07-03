@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 //NB1: just one instance of this class 
 //(don't use attributes but context.getStore(Namespace.GLOBAL or SPECIFIC_NAMESPACE))
-//NB2: JUnit5 Extensions seems to be slow !!! 
+//NB2: JUnit5 Extensions seems to be rather slow (may be aop/weaver) ...
 public class MyPerfCustomExtension implements AfterEachCallback, BeforeEachCallback {
 	
 	private static final Namespace NAMESPACE = Namespace.create("tp", "extensions", "MyPerfCustomExtension");

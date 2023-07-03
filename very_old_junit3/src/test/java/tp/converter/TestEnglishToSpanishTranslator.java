@@ -7,8 +7,8 @@ import junit.framework.TestCase;
 
 public class TestEnglishToSpanishTranslator extends TestCase {
 	
-	Translator translator;
-	List<String> textList;
+	private Translator translator;
+	private List<String> textList;
 	
 	public void setUp(){
 		translator = new EnglishToSpanishTranslator();
@@ -24,9 +24,4 @@ public class TestEnglishToSpanishTranslator extends TestCase {
 		assertEquals("verde", translatedMap.get("green"));
 	}
 	
-	
-	
-	
-	
-
 }
