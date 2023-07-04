@@ -25,7 +25,7 @@ public class ServiceDeviseImpl implements ServiceDevise {
 		try {
 			Devise deviseSource = daoDevise.findByCode(codeDeviseSource);
 			Devise deviseCible = daoDevise.findByCode(codeDeviseCible);
-			return 10 + montant * deviseCible.getExchangeRate() / deviseSource.getExchangeRate();
+			return  montant * deviseCible.getExchangeRate() / deviseSource.getExchangeRate();
 		} catch (NotFoundException e) {
 			throw new NotFoundException("devise_not_found: " + e.getMessage(),e);
 		}
