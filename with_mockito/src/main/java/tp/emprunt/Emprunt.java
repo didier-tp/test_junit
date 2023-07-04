@@ -7,7 +7,7 @@ public class Emprunt {
 	private Double tauxAssurance;//en % par an
 	private Double fraisDossier;//fixe , selon montant emprunté
 	private Double mensualite;//constante (même valeur chaque mois)
-	private Double mensualiteAvecAssurance;
+	private Double mensualiteAvecAssurance;//**
 	
 	public Emprunt(Double montant, int nbMois) {
 		this.montant = montant;
