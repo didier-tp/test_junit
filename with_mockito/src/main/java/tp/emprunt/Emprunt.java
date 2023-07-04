@@ -6,7 +6,7 @@ public class Emprunt {
 	private Double tauxInteret;//en % par an
 	private Double tauxAssurance;//en % par an
 	private Double fraisDossier;//fixe , selon montant emprunté
-	private Double mensualite;
+	private Double mensualite;//constante (même valeur chaque mois)
 	private Double mensualiteAvecAssurance;
 	
 	public Emprunt(Double montant, int nbMois) {
