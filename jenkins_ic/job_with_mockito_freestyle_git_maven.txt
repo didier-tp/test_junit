@@ -1,0 +1,19 @@
+job_name = job_with_mockito
+free_style project
+git repository url = https://github.com/didier-tp/test_junit.git
+branch : */main
+------------
+et premier test (URL git) / lancer un build
+vérifier "sortie console"
+-----------
+Add "Build_step" de type "invoquer les clibles maven de haut niveau"
+Cibles maven: clean package
+réglage avancé :
+pom : with_mockito/pom.xml
+-------------
+et second test  / lancer un build
+vérifier "sortie console"
+------------------------
+Ce qui déclenche ce build :
+scrutation de l'outil de gestion de version
+*/2 * * * *
