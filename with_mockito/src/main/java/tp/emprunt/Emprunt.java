@@ -5,7 +5,7 @@ public class Emprunt {
 	private int nbMois;//ex: 24mois pour 2ans ,60 mois pour 5ans , 120mois pour 10ans
 	private Double tauxInteret;//en % par an
 	private Double tauxAssurance;//en % par an
-	private Double fraisDossier;
+	private Double fraisDossier;//fixe , selon montant emprunté
 	private Double mensualite;
 	private Double mensualiteAvecAssurance;
 	
