@@ -1,4 +1,4 @@
-package tp.hello;
+package tp.bank;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -25,11 +25,13 @@ public class Compte {
 	}
 	
 	public void debiter(double montant) {
-		//this.solde -= montant;
+		this.solde -= montant;
+		/*
 		double nouveauSolde = this.solde -montant;
 		if(nouveauSolde >= DECOUVERT_AUTORISE)
 			this.solde = nouveauSolde;
 		else throw new RuntimeException("decouvert trop important pas accepté");
+		*/
 	}
 	
 	
