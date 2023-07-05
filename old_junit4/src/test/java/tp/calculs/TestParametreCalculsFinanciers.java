@@ -1,6 +1,7 @@
 package tp.calculs;
 
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,4 +26,9 @@ public class TestParametreCalculsFinanciers {
 	private CalculsFinanciers calculsFinanciers;//à tester
 	
 	//...
+	
+	@Test
+	public void testTemporaire() {
+		logger.trace("testTemporaire");
+	}
 }

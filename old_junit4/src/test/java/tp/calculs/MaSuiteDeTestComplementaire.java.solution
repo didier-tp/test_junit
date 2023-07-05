@@ -1,0 +1,19 @@
+package tp.calculs;
+
+
+import org.junit.experimental.categories.Categories;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+import tp.converter.categories.SlowTests;
+
+//@RunWith(Suite.class)
+@RunWith(Categories.class)//à la place de @RunWith(Suite.class)
+@Categories.IncludeCategory(SlowTests.class)
+@Suite.SuiteClasses({
+	SlowTestSimu.class,
+	TestParametreCalculsFinanciers.class,
+	SlowTestMyQuickSort.class
+})
+public class MaSuiteDeTestComplementaire {
+}

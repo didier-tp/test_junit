@@ -1,5 +1,6 @@
 package tp.calculs;
 
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,4 +29,9 @@ public class TestParametreCalculsFinanciers {
 	}
 	
 	//...
+	
+	@Test
+	public void testTemporaire() {
+		logger.trace("testTemporaire");
+	}
 }

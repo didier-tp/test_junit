@@ -1,0 +1,48 @@
+package tp.other;
+
+
+
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.fail;
+
+import java.io.FileNotFoundException;
+
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class TestMyFileUtil {
+	
+	private static Logger logger = LoggerFactory.getLogger(TestMyFileUtil.class);
+	
+	@Test
+    public void testSizeOfExistingFile(){
+		try {
+			String pathName="C:\\Windows\\System32\\drivers\\etc\\hosts";
+			long tailleFichier = MyFileUtil.tailleFichier(pathName);
+			logger.trace("tailleFichier="+tailleFichier + " pathName"+pathName);
+		} catch (FileNotFoundException e) {
+			//e.printStackTrace();
+			logger.error("error in testSizeOfNoExistingFile:",e);
+			fail("echec testSizeOfExistingFile:" + e.getMessage());
+		}
+    }
+	
+	@Test
+    public void testSizeOfNoExistingFileV1(){
+		FileNotFoundException fnfEx = assertThrows(FileNotFoundException.class ,
+				()->{
+					String pathName="C:\\Windows\\FichierInconnuQuiExistePas";
+					long tailleFichier = MyFileUtil.tailleFichier(pathName);
+					logger.trace("tailleFichier="+tailleFichier + " pathName"+pathName);
+				});
+		logger.trace("message de l'exception attendue:"+fnfEx.getMessage());	
+    }
+	
+	@Test(expected = FileNotFoundException.class)
+    public void testSizeOfNoExistingFileV2() throws Exception{
+          String pathName="C:\\Windows\\FichierInconnuQuiExistePas";
+		  long tailleFichier = MyFileUtil.tailleFichier(pathName);
+		  logger.trace("tailleFichier="+tailleFichier + " pathName"+pathName);	
+    }
+}
