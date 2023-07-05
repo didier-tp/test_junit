@@ -1,0 +1,64 @@
+package tp.calculs;
+
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@RunWith(Parameterized.class)
+public class TestParametreCalculsFinanciers {
+	
+	private static Logger logger = LoggerFactory.getLogger(TestParametreCalculsFinanciers.class);
+	
+	private CalculsFinanciers calculsFinanciers;//à tester
+	
+	 private int nbMois;
+	 private double montant; 
+	 private double tauxAnnuelPct;
+	 private double expectedMensualite;
+
+	//constructor params should be the sames as parameters set 
+	public TestParametreCalculsFinanciers(int nbMois,double montant, double tauxAnnuelPct , double expectedMensualite){
+		this.nbMois = nbMois;
+		this.montant = montant;
+		this.tauxAnnuelPct = tauxAnnuelPct;
+		this.expectedMensualite=expectedMensualite;
+	}
+	
+	@Before
+	public void init() {
+		calculsFinanciers = new CalculsFinanciers();
+	}
+	
+	//parameters set :
+	 @Parameterized.Parameters
+	   public static Collection<?> calculsMensualitesCorrects() {
+		 //return collection of { nbMois,montant, tauxAnnuelPct , expectedMensualite}
+	      return Arrays.asList(new Object[][] {
+	    	 { 24 , 10000.0 , 2.5 , 427.60} , 
+	    	 {48, 50000.0, 3.0, 1106.72} , 
+   		     {60, 60000, 2.0, 1051.67} ,
+   		     {120, 80000, 2.5, 754.16} 
+	      });
+	   }
+
+	   // This test will run n times since we have n values of parameters_set defined
+	   @Test
+	   public void testMensualite() {
+		   double mensualite = this.calculsFinanciers.mensualite(montant, nbMois, tauxAnnuelPct);
+			assertEquals(expectedMensualite , mensualite,  0.01);
+			logger.trace("testMensualite_junit4 nbMois="+nbMois
+					     + " montant="+montant
+					     + " tauxAnnuelPct="+tauxAnnuelPct
+					     + " mensualite="+mensualite
+					     + " expectedMensualite="+expectedMensualite );
+	   }
+}
