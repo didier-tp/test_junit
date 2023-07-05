@@ -19,6 +19,10 @@ public class Personne {
 		this.nom = nom;
 		this.taille = taille;
 	}
+	
+	public void grandir(int augmentationEnCm) {
+		this.taille += augmentationEnCm;
+	}
 
 	@Override
 	public String toString() {

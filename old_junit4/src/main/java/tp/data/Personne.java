@@ -25,6 +25,10 @@ public class Personne {
 		return "Personne [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", taille=" + taille + "]";
 	}
 	
+	public void grandir(int augmentationEnCm) {
+		this.taille += augmentationEnCm;
+	}
+	
 	/*
 	@Override
 	public int hashCode() {
