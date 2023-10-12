@@ -26,7 +26,10 @@ public class TestCalculsSimples {
 		int res = calculsSimples.addInt(5, 6);
 		logger.trace("testAddInt() , res="+res);
 		//assertEquals(11, res);
-		assertTrue(11==res);
+		//assertTrue(11==res);
+		//NB: en JUNIT4 assertTrue(message_erreur_si_pas_verifie,condition_a_verifier);//pas bien
+		//NB: en JUNIT5 assertTrue(condition_a_verifier,message_erreur_si_pas_verifie);//bien
+		assertTrue(11==res,"5+6 ne vaut pas 11!!!");
 	}
 	
 	@Test

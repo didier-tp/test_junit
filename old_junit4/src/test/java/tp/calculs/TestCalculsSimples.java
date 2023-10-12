@@ -23,10 +23,11 @@ public class TestCalculsSimples {
 	
 	@Test
 	public void testAddInt() {
-		int res = calculsSimples.addInt(5, 6);
+		int res = calculsSimples.addInt(5,6);
 		logger.trace("testAddInt() , res="+res);
 		//assertEquals(11, res);
 		assertTrue(11==res);
+		//assertTrue("5+6 ne vaut pas 11 !!!",11==res);
 	}
 	
 	@Test

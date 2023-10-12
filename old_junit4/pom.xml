@@ -28,6 +28,17 @@
     	<scope>test</scope>
 	</dependency>
 	
+	<!-- assertj is a more recent assertion library than hamcrest 
+	     better auto-completion with java IDE , more fluent , ... -->
+	<!--
+	<dependency>
+    	<groupId>org.assertj</groupId>
+    	<artifactId>assertj-core</artifactId>
+    	<version>3.24.2</version>
+    	<scope>test</scope>
+	</dependency>
+	-->
+	
 	<dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>

@@ -15,6 +15,10 @@ public class TestWithTimeoutRule {
 	
 	private static Logger logger = LoggerFactory.getLogger(TestWithTimeoutRule.class);
 	
+	
+	@Rule
+	public MyPerfCustomRule myPerfCustomRule = new MyPerfCustomRule();
+	
 	@Rule	    
     public Timeout globalTimeout = new Timeout(40, TimeUnit.MILLISECONDS);
 	/*
@@ -25,8 +29,7 @@ public class TestWithTimeoutRule {
 	        - an compact/reusable way to add an equivalent of @Before and @After code
 	 */
 	
-	@Rule
-	public MyPerfCustomRule myPerfCustomRule = new MyPerfCustomRule();
+
 	
 	//NB: il existe également @ClassRule en JUnit4
 	

@@ -25,6 +25,7 @@ public class MyPerfCustomRule implements TestRule {
                 	} catch(Exception ex){
                 		logger.error("MyPerfCustomRule, exception after execution of " +description.getMethodName()
                 		             + " " + ex.getMessage());
+                		throw ex;
                 	}finally {
                 		//AFTER (bad or good test)
                     	long endTime = System.nanoTime();
