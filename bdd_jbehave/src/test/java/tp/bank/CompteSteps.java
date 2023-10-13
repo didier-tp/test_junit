@@ -14,22 +14,19 @@ import org.slf4j.LoggerFactory;
 public class CompteSteps {
 	private static Logger logger = LoggerFactory.getLogger(CompteSteps.class);
 	
-	
-
 	private Compte compte=null;
 	private Boolean avecException =false;
-	
 	
 
     @Given("soldeInitial=<soldeInitial>")
     public void given_soldeInitial(@Named("soldeInitial")double soldeInitial) {
         this.compte = new Compte(1L,"compte_1" , soldeInitial);
-        logger.trace("given_soldeInitial="+soldeInitial + " compte="+compte);
+        //logger.trace("given_soldeInitial="+soldeInitial + " compte="+compte);
     }
 
     @When("debiter montant=<montant>")
     public void when_debiter(@Named("montant")double montant) {
-    	logger.trace("when_debiter montant="+montant );
+    	//logger.trace("when_debiter montant="+montant );
         try {
 			this.compte.debiter(montant);
 			this.avecException=false;
@@ -43,22 +40,15 @@ public class CompteSteps {
     @Then("nouveauSolde=<nouveauSolde>")
     public void then_nouveauSolde(@Named("nouveauSolde")Double expectedNouveauSolde) {
         assertEquals(expectedNouveauSolde, compte.getSolde());
-        logger.trace("then_nouveauSolde="+compte.getSolde() );
+        //logger.trace("then_nouveauSolde="+compte.getSolde() );
     }
     
-    //@And or @Then
+
     @Then("statut=<statut>")
     public void and_status_is(@Named("statut") String expectedStatus) {
         assertEquals(expectedStatus, compte.getStatut().toString());
     }
     
-    
-    //@ParameterType(value = "true|True|TRUE|false|False|FALSE")
-	public Boolean booleanValue(String value) {
-	    return Boolean.valueOf(value);
-	}
-    
-    //@And or @Then
     @Then("AvecException=<AvecException>")
     public void and_AvecException_is(@Named("AvecException")Boolean expectedAvecException) {
         assertEquals(expectedAvecException, avecException);

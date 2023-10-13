@@ -12,6 +12,13 @@ public class ServiceDeviseImpl implements ServiceDevise {
 	static Logger logger = LoggerFactory.getLogger(ServiceDeviseImpl.class);
 	
 	private DaoDevise daoDevise;
+	
+	/*
+	public ServiceDeviseImpl() {
+		logger.trace("ServiceDeviseImpl instance="+this.toString());
+	}
+	*/
+   
 
 	//injection de dépendance par constructeur
 	public ServiceDeviseImpl(DaoDevise daoDevise) {
@@ -22,6 +29,8 @@ public class ServiceDeviseImpl implements ServiceDevise {
 
 	@Override
 	public double convertir(double montant, String codeDeviseSource, String codeDeviseCible) throws NotFoundException {
+		//logger.trace("ServiceDeviseImpl instance="+this.toString() 
+	    // + " using repdaoDeviseositoryDevise="+daoDevise.getClass().getName());
 		try {
 			Devise deviseSource = daoDevise.findByCode(codeDeviseSource);
 			Devise deviseCible = daoDevise.findByCode(codeDeviseCible);

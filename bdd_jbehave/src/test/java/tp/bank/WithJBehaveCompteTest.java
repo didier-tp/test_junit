@@ -12,8 +12,12 @@ import org.jbehave.core.reporters.Format;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class WithJBehaveCompteTest extends JUnitStories {
+	
+	private static Logger logger = LoggerFactory.getLogger(WithJBehaveCompteTest.class);
 
 	
 	@Override
@@ -28,6 +32,7 @@ public class WithJBehaveCompteTest extends JUnitStories {
 
 	@Override
 	public List<String> storyPaths() {
+		//logger.trace("**** tp/bank/compte.story");
 		return Arrays.asList("tp/bank/compte.story");//si compte.story placé dans src/main/resources/tp/bank
 	}
 	

@@ -35,7 +35,8 @@ public class TestServiceDevise {
 	             //à partiellement tester d'un point de vue purement algorithmique 
 		 
 		
-		@Mock /* @Mock pour demander à "Mockito" de :
+		@Mock 
+		/* @Mock pour demander à "Mockito" de :
 		       - créer ultérieurement un Mock de l'interface 
 		       - NB: il faudra appeler MockitoAnnotations.openMocks(this); 
 	           pour initialiser tous les mocks de this préfixés par @Mock
@@ -51,9 +52,10 @@ public class TestServiceDevise {
 			// MockitoAnnotations.openMocks(this) permet de créer des instances de chaque mock 
 			//   préfixé par @Mock au sein de this .
 			//   ce qui revient au même que d'écrire :
-			//      this.daoDeviseMock = Mockito.mock(RepositoryDevise.class);
+			//      this.daoDeviseMock = Mockito.mock(DaoDevise.class);
 			//      this.mock2=Mockito.mock(Interface_ouClasse2.class);
 			//      s'il n'y avait pas d'utilisation de @Mock 
+			 //     this.serviceDevise = new ServiceDeviseImpl(this.daoDeviseMock);
 		}
 	
 		
