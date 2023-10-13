@@ -25,7 +25,7 @@ public class Compte {
 	}
 	
 	public void debiter(double montant) {
-		/*
+	    /*
 		this.solde -= montant;
 		*/
 		

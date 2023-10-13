@@ -11,4 +11,3 @@ Examples:
 | 400          | 300     | 100          | OK          |false         |
 | 100          | 500     | 100          | OK          |true          |
 | -100         | 400     | -100         | A_DECOUVERT |true          |
- 

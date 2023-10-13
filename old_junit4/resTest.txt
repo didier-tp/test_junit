@@ -1,0 +1,47 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< tp:old_junit4 >----------------------------
+[INFO] Building old_junit4 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ old_junit4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ old_junit4 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ old_junit4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ old_junit4 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ old_junit4 ---
+[INFO] Surefire report directory: C:\tp\local-git-didier-tp-repositories\test_junit\old_junit4\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running tp.converter.FastAndSlowTestsSuite
+2023-10-13 15:14:44 TRACE TestWithCategory:20 - slow testA
+2023-10-13 15:14:44 TRACE TestWithCategory:26 - fast testB
+2023-10-13 15:14:44 TRACE TestWithCategory:32 - important fast testC
+2023-10-13 15:14:44 TRACE TestWithCategory:38 - secondary slow testD
+2023-10-13 15:14:44 TRACE TestWithAssumptions:21 - javaVersion=17 javaMajorVersion=17
+2023-10-13 15:14:44 TRACE TestWithAssumptions:27 - first step of test1
+2023-10-13 15:14:44 TRACE TestWithAssumptions:29 - other steps of test1 if javaVersion >= 11
+2023-10-13 15:14:44 TRACE TestWithAssumptions:31 - other steps of test1 if javaVersion >= 17
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.659 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 1
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.195 s
+[INFO] Finished at: 2023-10-13T15:14:44+02:00
+[INFO] ------------------------------------------------------------------------
