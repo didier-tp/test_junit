@@ -1,4 +1,4 @@
-package tp.hello;
+package tp;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +12,10 @@ import org.jbehave.core.reporters.Format;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
+
+import tp.bank.CompteSteps;
+import tp.compute.MultSteps;
+import tp.hello.IsItFridaySteps;
 
 public class WithJBehaveAllTests extends JUnitStories {
 
@@ -28,12 +32,12 @@ public class WithJBehaveAllTests extends JUnitStories {
 
 	@Override
 	public List<String> storyPaths() {
-		return Arrays.asList("tp/hello/is_it_friday.story");//si is_it_friday.story placé dans src/main/resources/tp/hello
+		return Arrays.asList("tp/hello/is_it_friday.story" , "tp/bank/compte.story" , "tp/compute/mult.story");
 	}
 	
 	@Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new IsItFridaySteps());
+        return new InstanceStepsFactory(configuration(), new IsItFridaySteps() , new CompteSteps() , new MultSteps());
     }
 
 }
