@@ -1,7 +1,7 @@
 Feature: CompteBancaire bien géré
   Gestion de compte bancaire (debiter, crediter)
 
-  Scenario Outline: Decouvert autorisé ou pas
+  Scenario Outline: Decouvert autorisé ou pas avec AUTORISATION_DECOUVERT=-300
     Given soldeInitial=<soldeInitial>
     When debiter montant=<montant>
     Then nouveauSolde=<nouveauSolde>

@@ -1,5 +1,13 @@
 package tp.matcher;
 
+/* 
+ * NB: old org.mockito.Matchers are now deprecated
+ *     use org.mockito.ArgumentMatcher instead
+ *     NB: La majorité des matchers pour mockito devraient être de type org.mockito.ArgumentMatcher
+ *         il existe cependant org.mockito.hamcrest.MockitoHamcrest.argThat permettant d'utiliser des matcher de hamcrest
+ *         mais c'est s'écarter du chemin principal ...
+ */
+
 import org.mockito.ArgumentMatcher;
 
 public class MyDoubleBetween implements ArgumentMatcher<Double>{
