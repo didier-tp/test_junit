@@ -1,36 +1,21 @@
 package tp.emprunt;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.times;
-
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.hamcrest.MockitoHamcrest;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import tp.matcher.MyIntegerBetween;
-
-@ExtendWith(MockitoExtension.class)
+//******CODE A COMPLETER (EN DEBUT DE TP)******
 public class TestServiceEmpruntAvecMock {
 	
 	private static Logger logger = LoggerFactory.getLogger(TestServiceEmpruntAvecMock.class);
 	
-	//private ServiceEmprunt serviceEmprunt; //à tester
-	@InjectMocks
+	
 	private ServiceEmpruntImpl serviceEmprunt; //à tester
 	
-	@Mock
+
 	private ServiceTauxInteret serviceTauxInteretMock ;//sous service en arrière plan
 	
-	@Mock
+
 	private ServiceFraisEmprunt serviceFraisEmpruntMock ;//sous service en arrière plan
 
 	
@@ -40,99 +25,31 @@ public class TestServiceEmpruntAvecMock {
 		//par defaut (selon ServiceTauxInteretImpl) , coeffMarge = 1.01; 
 		//et donc tauxInteretBanque = 3.5 * 1.01 = 3,535 % par an
 		//et donc mensualite = 990.499
-		Mockito.when(serviceTauxInteretMock.tauxCourantAnnuelBce(120)).thenReturn(3.5);
-		Mockito.when(serviceTauxInteretMock.coeffMarge()).thenReturn(1.01);
-		
-		double tauxInteretBanque = this.serviceEmprunt.tauxInteretBanque(120);
-		assertEquals(3.535 , tauxInteretBanque, 0.001);
-		double mensualite= this.serviceEmprunt.mensualite(100000, 120);//120mois =10ans
-		logger.trace("mensualite="+mensualite);
-		assertEquals(990.499 , mensualite, 0.001);	
-		
-		//éventuelle vérification des appels internes effectués par
-		//this.serviceEmprunt.tauxInteretBanque() et this.serviceEmprunt.mensualite():
-		Mockito.verify(serviceTauxInteretMock,times(2)).coeffMarge();
-		Mockito.verify(serviceTauxInteretMock,times(2)).tauxCourantAnnuelBce(120);
+		//...
 	}
 	
 	@Test
 	public void testEmprunt() {
 		//par defaut (selon ServiceTauxInteretImpl) , tauxInteret = 3.5% pour 120mois
 		//par defaut (selon ServiceTauxInteretImpl) , coeffMarge = 1.01; 
-		
-		Mockito.when(serviceTauxInteretMock.tauxCourantAnnuelBce(120)).thenReturn(3.5);
-		
-		//Mockito.lenient().when(serviceTauxInteretMock.tauxCourantAnnuelBce(Mockito.intThat( new MyIntegerBetween(0,24)))).thenReturn(2.0);
-		//Mockito.lenient().when(serviceTauxInteretMock.tauxCourantAnnuelBce(Mockito.intThat( new MyIntegerBetween(25,60)))).thenReturn(3.0);
-		//Mockito.when(serviceTauxInteretMock.tauxCourantAnnuelBce(Mockito.intThat( new MyIntegerBetween(61,1000)))).thenReturn(3.5);
-		//Mockito.when(serviceTauxInteretMock.tauxCourantAnnuelBce(MockitoHamcrest.intThat( Matchers.greaterThanOrEqualTo(61)))).thenReturn(3.5);
-		/*
-		Mockito.when(serviceTauxInteretMock.tauxCourantAnnuelBce(
-				MockitoHamcrest.intThat( 
-						Matchers.allOf(Matchers.greaterThanOrEqualTo(61),Matchers.lessThanOrEqualTo(1000))
-						)
-				)).thenReturn(3.5);
-		*/
-		
-		Mockito.when(serviceTauxInteretMock.coeffMarge()).thenReturn(1.01);
 		//et donc tauxInteretBanque = 3.5 * 1.01 = 3.535 % par an
 		//et donc mensualite = 990.499
 		//par defaut (selon ServiceFraisEmpruntImpl) , fraisDossier = 150.0 pour montant = 100000
 		//par defaut (selon ServiceFraisEmpruntImpl) , tauxAnnuelFraisAssurance = 0.4%
-		
-		Mockito.when(serviceFraisEmpruntMock.fraisDossierSelonMontant(100000)).thenReturn(150.0);
-		
-		/*
-		Mockito.when(serviceFraisEmpruntMock.fraisDossierSelonMontant(
-				Mockito.doubleThat( new MyDoubleBetween(30000.1,99999900.0)))).thenReturn(150.0);
-		*/
-		
-		Mockito.when(serviceFraisEmpruntMock.tauxAnnuelFraisAssurance()).thenReturn(0.4);
 		//et donc frais_assurance_mensuel= (0.4 /12 /100) * 100000 = 33.3333
 		//et donc mensualiteAvecAssurance =  990.499+ 33.3333 = 1023.8323
-		
-		Emprunt emprunt= this.serviceEmprunt.calculEmprunt(100000, 120);//120mois =10ans
-		logger.trace("emprunt="+emprunt);
-		assertEquals(100000 , emprunt.getMontant(), 0.01);
-		assertEquals(120 , emprunt.getNbMois());
-		assertEquals(3.535 , emprunt.getTauxInteret(), 0.01);
-		assertEquals(990.499 , emprunt.getMensualite(), 0.001);
-		assertEquals(150.0 , emprunt.getFraisDossier(), 0.01);
-		assertEquals(0.4 , emprunt.getTauxAssurance(), 0.01);
-		assertEquals(1023.8323 , emprunt.getMensualiteAvecAssurance(), 0.0001);
-		//mensualités avec et sans assurance verifiées avec site meilleurtaux.com
-		
-		//éventuelle vérification des appels internes effectués par
-		//this.serviceEmprunt.tauxInteretBanque() et this.serviceEmprunt.mensualite():
-		Mockito.verify(serviceTauxInteretMock,atLeastOnce()).coeffMarge();
-		Mockito.verify(serviceTauxInteretMock,atLeastOnce()).tauxCourantAnnuelBce(120);
-		Mockito.verify(serviceFraisEmpruntMock).fraisDossierSelonMontant(100000);
-		Mockito.verify(serviceFraisEmpruntMock).tauxAnnuelFraisAssurance();
+		//...
 	}
 	
 	@Test
 	public void testEmpruntAvecMontantEmprunteTropPetit() {
-		//not called by serviceEmprunt.calculEmprunt in case of MontantEmprunteException 
-		//(UnnecessaryStubbingException)
-		//Mockito.when(serviceTauxInteretMock.tauxCourantAnnuelBce(120)).thenReturn(3.5);
-		//Mockito.when(serviceTauxInteretMock.coeffMarge()).thenReturn(1.01);
-		//Mockito.when(serviceFraisEmpruntMock.tauxAnnuelFraisAssurance()).thenReturn(0.4);
-		
-		Mockito.when(serviceFraisEmpruntMock.fraisDossierSelonMontant(500)) //called first
-		       .thenThrow(new MontantEmprunteException("montant emprunte trop petit , minimum=1000"));
 		
 		//NB: si montant emprunt trop petit , le sous service ServiceFraisEmprunt doit remonter une exception
 		// de type MontantEmprunteException
 		// et le service "serviceEmprunt" doit laisser remonter cette exception 
-		MontantEmprunteException montantEmprunteException = 
-				assertThrows(MontantEmprunteException.class,
-						()->{
-							Emprunt emprunt= this.serviceEmprunt.calculEmprunt(500, 120);//120mois =10ans
-						});
-		
-		logger.trace("montantEmprunteException="+montantEmprunteException.getMessage());
-		
-		Mockito.verify(serviceFraisEmpruntMock).fraisDossierSelonMontant(500);
+		//...
+		//NB: au sein de l'implémentation actuelle de ServiceEmpruntImpl , calculEmprunt()
+		//appel serviceFraisEmprunt.fraisDossierSelonMontant(montant) en premier
+		//et laisse l'excption remonter/se_propager
 	}
 }
-

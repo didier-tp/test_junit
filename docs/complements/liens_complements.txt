@@ -1,0 +1,4 @@
+Mock static method with JUnit5 and Mockito:
+------------------------------------------
+https://stackoverflow.com/questions/52830441/junit5-mock-a-static-method
+https://sourcedcode.com/blog/aem/junit/junit5/mocking-static-methods-in-junit5

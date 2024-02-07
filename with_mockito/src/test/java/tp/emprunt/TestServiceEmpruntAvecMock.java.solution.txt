@@ -5,17 +5,18 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.times;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatcher;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.hamcrest.MockitoHamcrest;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import tp.matcher.MyDoubleBetween;
+import tp.matcher.MyIntegerBetween;
 
 @ExtendWith(MockitoExtension.class)
 public class TestServiceEmpruntAvecMock {
@@ -58,7 +59,21 @@ public class TestServiceEmpruntAvecMock {
 	public void testEmprunt() {
 		//par defaut (selon ServiceTauxInteretImpl) , tauxInteret = 3.5% pour 120mois
 		//par defaut (selon ServiceTauxInteretImpl) , coeffMarge = 1.01; 
+		
 		Mockito.when(serviceTauxInteretMock.tauxCourantAnnuelBce(120)).thenReturn(3.5);
+		
+		//Mockito.lenient().when(serviceTauxInteretMock.tauxCourantAnnuelBce(Mockito.intThat( new MyIntegerBetween(0,24)))).thenReturn(2.0);
+		//Mockito.lenient().when(serviceTauxInteretMock.tauxCourantAnnuelBce(Mockito.intThat( new MyIntegerBetween(25,60)))).thenReturn(3.0);
+		//Mockito.when(serviceTauxInteretMock.tauxCourantAnnuelBce(Mockito.intThat( new MyIntegerBetween(61,1000)))).thenReturn(3.5);
+		//Mockito.when(serviceTauxInteretMock.tauxCourantAnnuelBce(MockitoHamcrest.intThat( Matchers.greaterThanOrEqualTo(61)))).thenReturn(3.5);
+		/*
+		Mockito.when(serviceTauxInteretMock.tauxCourantAnnuelBce(
+				MockitoHamcrest.intThat( 
+						Matchers.allOf(Matchers.greaterThanOrEqualTo(61),Matchers.lessThanOrEqualTo(1000))
+						)
+				)).thenReturn(3.5);
+		*/
+		
 		Mockito.when(serviceTauxInteretMock.coeffMarge()).thenReturn(1.01);
 		//et donc tauxInteretBanque = 3.5 * 1.01 = 3.535 % par an
 		//et donc mensualite = 990.499
